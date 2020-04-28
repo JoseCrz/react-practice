@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.Badge__header img {
+  max-width: 80%;
+}
+
 .Badge__section-name {
   display: flex;
   justify-content: center;

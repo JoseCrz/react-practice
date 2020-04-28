@@ -32,8 +32,10 @@ class BadgeNew extends React.Component {
       <div className="Wrapper">
         <Header />
         <Hero />
-        <Badge name={this.state.form.name} lastname={this.state.form.lastname} jobTitle={this.state.form.jobTitle} twitter={this.state.form.twitter} email={this.state.form.email} />
-        <BadgeForm onChange={this.handleChange} formValues={this.state.form} />
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <Badge name={this.state.form.name} lastname={this.state.form.lastname} jobTitle={this.state.form.jobTitle} twitter={this.state.form.twitter} email={this.state.form.email} />
+          <BadgeForm onChange={this.handleChange} formValues={this.state.form} />
+        </div>
       </div>
     )
   }
