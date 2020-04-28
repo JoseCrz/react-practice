@@ -1,0 +1,41 @@
+.BadgesList__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.BadgesList__item {
+  background: white;
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) .3s;
+}
+
+.BadgesList__item:hover {
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.35);
+  transform: scale(1.02);
+}
+
+.BadgesList__divider {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.BadgesList__image {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.BadgesList__name {
+  margin: 0 0 12px 0;
+  font-size: 1.3em;
+}
+
+.BadgesList__twitter {
+  color: var(--primary);
+  text-decoration: none;
+}
