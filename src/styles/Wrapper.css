@@ -3,6 +3,9 @@
   max-width: 1300px;
   padding: 0 36px;
   margin: 0 auto;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
 }
 
 .Wrapper--mini {

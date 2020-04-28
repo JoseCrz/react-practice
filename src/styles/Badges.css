@@ -1,0 +1,28 @@
+.Badges__hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Badges__hero-image {
+  max-width: 50%;
+}
+
+.Badges__buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Badges__button {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border-bottom: 3px solid rgb(139, 52, 39);
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+}
+
+.Badges__button:hover {
+  transform: translateY(-2px);
+}
