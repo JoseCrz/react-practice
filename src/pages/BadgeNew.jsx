@@ -5,6 +5,7 @@ import '../styles/Wrapper.css'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Badge from '../components/Badge'
+import BadgeForm from '../components/BadgeForm'
 
 class BadgeNew extends React.Component {
   render () {
@@ -13,6 +14,7 @@ class BadgeNew extends React.Component {
         <Header />
         <Hero />
         <Badge name="Memo" lastname="Poblete" jobTitle="Designer" twitter="memopoblete" />
+        <BadgeForm />
       </div>
     )
   }
