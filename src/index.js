@@ -6,4 +6,4 @@ import BadgeNew from './pages/BadgeNew'
 import './global.css'
 const container = document.getElementById('app');
 
-ReactDOM.render(< BadgeNew name="José" lastname="Cuevas" jobTitle="Full Stack Developer" twitter="josecrz13" />, container);
+ReactDOM.render(< BadgeNew />, container);
