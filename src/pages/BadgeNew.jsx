@@ -29,7 +29,12 @@ class BadgeNew extends React.Component {
     return (
       <React.Fragment>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <Badge name={this.state.form.name} lastname={this.state.form.lastname} jobTitle={this.state.form.jobTitle} twitter={this.state.form.twitter} email={this.state.form.email} />
+          <Badge 
+          name={this.state.form.name || 'José'}
+          lastname={this.state.form.lastname || 'Cuevas'}
+          jobTitle={this.state.form.jobTitle || 'Full Stack Developer'}
+          twitter={this.state.form.twitter || 'josecrz13'}
+          email={this.state.form.email || 'jose@dobletaptap.com'} />
           <BadgeForm onChange={this.handleChange} formValues={this.state.form} />
         </div>
       </React.Fragment>
