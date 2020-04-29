@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
+import PageLoader from '../components/PageLoader'
 import BadgesList from '../components/BadgesList'
 import api from '../api'
 
@@ -41,7 +41,7 @@ class Badges extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return 'Loading...'
+      return <PageLoader />
     }
 
     if (this.state.error) {
