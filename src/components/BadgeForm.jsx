@@ -4,10 +4,6 @@ import '../styles/Form.css'
 
 class BadgeForm extends React.Component {
   
-  handleSubmit = e => {
-    e.preventDefault()
-  }
-  
   handleClick = e => {
     console.log('Button clicked!')
     console.log(this.state)
@@ -15,11 +11,11 @@ class BadgeForm extends React.Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit} className="Form">
+      <form onSubmit={this.props.onSubmit} className="Form">
         <label className="Form__label">Name</label>
-        <input onChange={this.props.onChange} value={this.props.formValues.name} className="Form__input" type="text" name="name" />
+        <input onChange={this.props.onChange} value={this.props.formValues.firstName} className="Form__input" type="text" name="firstName" />
         <label className="Form__label">Lastname</label>
-        <input onChange={this.props.onChange} value={this.props.formValues.lastname} className="Form__input" type="text" name="lastname" />
+        <input onChange={this.props.onChange} value={this.props.formValues.lastName} className="Form__input" type="text" name="lastName" />
         <label className="Form__label">Email</label>
         <input onChange={this.props.onChange} value={this.props.formValues.email} className="Form__input" type="email" name="email" />
         <label className="Form__label">Job Title</label>

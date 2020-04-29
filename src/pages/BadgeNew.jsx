@@ -1,18 +1,33 @@
 import React from 'react'
 
-import '../styles/Wrapper.css'
 
 import Badge from '../components/Badge'
 import BadgeForm from '../components/BadgeForm'
+import api from '../api'
+
+import '../styles/Wrapper.css'
 
 class BadgeNew extends React.Component {
   state = {
     form: {
-      name: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       email: '',
       jobTitle: '',
       twitter: ''
+    }
+  }
+
+  handleSubmit = async e => {
+    e.preventDefault()
+    this.setState({loading: true, error: null})
+
+    try {
+      await api.badges.create(this.state.form)
+      this.setState({loading: false})
+      alert('Badge Created!')
+    } catch (error) {
+      this.setState({loading: false, error})
     }
   }
 
@@ -30,12 +45,15 @@ class BadgeNew extends React.Component {
       <React.Fragment>
         <div style={{display: 'flex', alignItems: 'center'}}>
           <Badge 
-          name={this.state.form.name || 'José'}
-          lastname={this.state.form.lastname || 'Cuevas'}
+          firstName={this.state.form.firstName || 'José'}
+          lastName={this.state.form.lastName || 'Cuevas'}
           jobTitle={this.state.form.jobTitle || 'Full Stack Developer'}
           twitter={this.state.form.twitter || 'josecrz13'}
-          email={this.state.form.email || 'jose@dobletaptap.com'} />
-          <BadgeForm onChange={this.handleChange} formValues={this.state.form} />
+          email={this.state.form.email || 'josecueram@gmail.com'} />
+          <BadgeForm 
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange} 
+          formValues={this.state.form} />
         </div>
       </React.Fragment>
     )
