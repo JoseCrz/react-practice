@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import PageLoader from '../components/PageLoader'
+import PageError from '../components/PageError'
 import BadgesList from '../components/BadgesList'
 import api from '../api'
 
@@ -45,7 +46,7 @@ class Badges extends React.Component {
     }
 
     if (this.state.error) {
-      return `Error: ${this.state.error.message}`
+      return <PageError error={this.state.error.message} />
     }
 
     return (
