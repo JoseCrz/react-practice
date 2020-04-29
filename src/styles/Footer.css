@@ -1,0 +1,46 @@
+.Footer {
+  text-align    : center;
+  padding-bottom: 50px
+}
+
+.Footer__top {
+  display         : -webkit-box;
+  display         : -ms-flexbox;
+  display         : flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack   : end;
+  justify-content : flex-end
+}
+
+.Footer__container {
+  display          : -webkit-box;
+  display          : -ms-flexbox;
+  display          : flex;
+  -webkit-box-align: center;
+  -ms-flex-align   : center;
+  align-items      : center
+}
+
+.Footer__button {
+  margin-left  : 10px;
+  padding      : 4px 8px;
+  border-radius: 10px;
+  border       : 1px solid var(--text)
+}
+
+.Footer__button:hover {
+  background: var(--text);
+  color     : #fff
+}
+
+.Footer__credits {
+  color: var(--text)
+}
+
+@media screen and (max-width: 540px) {
+  .Footer__top {
+    -webkit-box-pack: center;
+    -ms-flex-pack   : center;
+    justify-content : center
+  }
+}
