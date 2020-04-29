@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Navbar from '../components/Header'
+
 import BadgesList from '../components/BadgesList'
 
 import logo from '../images/logo.svg'
@@ -46,23 +46,23 @@ class Badges extends React.Component {
   }
   render () {
     return (
-      <div className="Badges">
-        <div className="Wrapper">
-          <Navbar />
-        </div>
-        <div className="Badges__hero">
+      <React.Fragment>
+        <div className="Badges">
+          <div className="Badges__hero">
+            <div className="Wrapper">
+              <img src={logo} alt="" className="Badges__hero-image"/>
+            </div>
+          </div>
           <div className="Wrapper">
-            <img src={logo} alt="" className="Badges__hero-image"/>
+            <div className="Badges__buttons-container">
+              <Link to="/badges/new" className="Badges__button">New Badge</Link>
+            </div>
+            <div className="Wrapper Wrapper--mini">
+              <BadgesList badges={this.state.data} />
+            </div>
           </div>
         </div>
-        <div className="Wrapper">
-          <div className="Badges__buttons-container">
-            <Link to="/badges/new" className="Badges__button">New Badge</Link>
-          </div>
-
-          <BadgesList badges={this.state.data} />
-        </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
