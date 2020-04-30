@@ -3,12 +3,15 @@ import React from 'react'
 
 import Badge from '../components/Badge'
 import BadgeForm from '../components/BadgeForm'
+import PageLoader from '../components/PageLoader'
 import api from '../api'
 
 import '../styles/Wrapper.css'
 
 class BadgeNew extends React.Component {
   state = {
+    loading: false,
+    error: null,
     form: {
       firstName: '',
       lastName: '',
@@ -25,7 +28,7 @@ class BadgeNew extends React.Component {
     try {
       await api.badges.create(this.state.form)
       this.setState({loading: false})
-      alert('Badge Created!')
+      this.props.history.push('/badges')
     } catch (error) {
       this.setState({loading: false, error})
     }
@@ -41,6 +44,10 @@ class BadgeNew extends React.Component {
   }
 
   render () {
+    if (this.state.loading) {
+      return <PageLoader />
+    }
+
     return (
       <React.Fragment>
         <div style={{display: 'flex', alignItems: 'center'}}>
@@ -53,7 +60,8 @@ class BadgeNew extends React.Component {
           <BadgeForm 
           onSubmit={this.handleSubmit}
           onChange={this.handleChange} 
-          formValues={this.state.form} />
+          formValues={this.state.form}
+          error={this.state.error} />
         </div>
       </React.Fragment>
     )

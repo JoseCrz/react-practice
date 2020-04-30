@@ -27,6 +27,7 @@ const api = {
       return callApi('/badges');
     },
     create(badge) {
+      // throw new Error('Internal server error :(')
       return callApi(`/badges`, {
         method: 'POST',
         body: JSON.stringify(badge),

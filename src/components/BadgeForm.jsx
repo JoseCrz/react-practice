@@ -23,6 +23,9 @@ class BadgeForm extends React.Component {
         <label className="Form__label">Twitter</label>
         <input onChange={this.props.onChange} value={this.props.formValues.twitter} className="Form__input" type="text" name="twitter" />
         <button onClick={this.handleClick} className="Form__button" type="submit">Enviar</button>
+        {this.props.error && (
+          <p>{this.props.error.message}</p>
+        )}
       </form>
     )
   }
