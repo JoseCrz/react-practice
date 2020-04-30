@@ -39,3 +39,8 @@
   color: var(--primary);
   text-decoration: none;
 }
+
+.BadgesList__link {
+  text-decoration: none;
+  color: inherit;
+}

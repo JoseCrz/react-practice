@@ -8,9 +8,9 @@ import api from '../api'
 
 import '../styles/Wrapper.css'
 
-class BadgeNew extends React.Component {
+class BadgeEdit extends React.Component {
   state = {
-    loading: false,
+    loading: true,
     error: null,
     form: {
       firstName: '',
@@ -26,7 +26,7 @@ class BadgeNew extends React.Component {
     this.setState({loading: true, error: null})
 
     try {
-      await api.badges.create(this.state.form)
+      await api.badges.update(this.props.match.params.badgeId, this.state.form)
       this.setState({loading: false})
       this.props.history.push('/badges')
     } catch (error) {
@@ -41,6 +41,21 @@ class BadgeNew extends React.Component {
         [e.target.name]: e.target.value
       }
     })
+  }
+
+  componentDidMount () {
+    this.fetchData()
+  }
+
+  fetchData = async e => {
+    this.setState({loading:true, error: null})
+
+    try {
+      const data = await api.badges.read(this.props.match.params.badgeId)
+      this.setState({loading: false, error: null, form: data})
+    } catch (error) {
+      this.setState({loading: false, error})
+    }
   }
 
   render () {
@@ -58,7 +73,7 @@ class BadgeNew extends React.Component {
           twitter={this.state.form.twitter || 'josecrz13'}
           email={this.state.form.email || 'josecueram@gmail.com'} />
           <div>
-            <h2 style={{textAlign: 'center'}}>New Attendant</h2>
+            <h2 style={{textAlign: 'center'}}>Edit Attendant</h2>
             <BadgeForm 
             onSubmit={this.handleSubmit}
             onChange={this.handleChange} 
@@ -71,4 +86,4 @@ class BadgeNew extends React.Component {
   }
 }
 
-export default BadgeNew
+export default BadgeEdit
