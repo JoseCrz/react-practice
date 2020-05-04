@@ -1,0 +1,39 @@
+.BadgeDetails__button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BadgeDetails__button {
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 24px;
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+}
+
+.BadgeDetails__button:hover {
+  transform: translateY(-1px);
+}
+
+.BadgeDetails__button:active{
+  transform: translateY(0);
+  border-bottom-width: 1px;
+}
+
+.BadgeDetails__button--accept {
+  background: green;
+  border-bottom: 3px solid rgb(1, 90, 1);
+  color: white;
+}
+
+.BadgeDetails__button--danger {
+  background: red;
+  border-bottom: 3px solid rgb(161, 1, 1);
+  color: white;
+}
