@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import PageLoader from '../components/PageLoader'
+import MiniLoader from '../components/MiniLoader'
 import PageError from '../components/PageError'
 import BadgesList from '../components/BadgesList'
 import api from '../api'
@@ -23,10 +24,11 @@ class Badges extends React.Component {
 
   componentDidMount () {
     this.fetchData()
+    this.intervalId = setInterval(this.fetchData, 5000);
   }
 
   componentWillUnmount () {
-    clearTimeout(this.timeoutId)
+    clearInterval(this.intervalId)
   }
 
   fetchData = async () => {
@@ -41,7 +43,7 @@ class Badges extends React.Component {
   }
 
   render () {
-    if (this.state.loading) {
+    if (this.state.loading && !this.state.data) {
       return <PageLoader />
     }
 
@@ -63,6 +65,7 @@ class Badges extends React.Component {
             </div>
             <div className="Wrapper Wrapper--mini">
               <BadgesList badges={this.state.data} />
+              {this.state.loading && <MiniLoader />}
             </div>
           </div>
         </div>
