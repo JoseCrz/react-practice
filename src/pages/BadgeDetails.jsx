@@ -1,4 +1,6 @@
 import React from 'react'
+import DeleteBadgeModal from '../components/DeleteBadgeModal'
+
 
 import { Link } from 'react-router-dom'
 import Badge from '../components/Badge'
@@ -20,7 +22,8 @@ function BadgeDetails (props) {
           <h2 style={{textAlign: 'center'}}>Actions</h2>
           <div className="BadgeDetails__button-container">
             <Link className="BadgeDetails__button BadgeDetails__button--accept" to={`/badges/${badge.id}/edit`}>Edit</Link>
-            <button className="BadgeDetails__button BadgeDetails__button--danger">Delete</button>
+            <button onClick={props.onOpenModal} className="BadgeDetails__button BadgeDetails__button--danger">Delete</button>
+            <DeleteBadgeModal isOpen={props.modalIsOpen} onDeleteBadge={props.onDeleteBadge} onClose={props.onCloseModal} />
           </div>
         </div>
       </div>
